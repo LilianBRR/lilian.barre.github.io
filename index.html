@@ -3,46 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lilian Barré</title>
+    <title>Lilian Barré - Portfolio</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
-            theme: { extend: { colors: {
-                primary: '#9D61FF',   // couleur principale
-                secondary: '#F7F7F7'  // couleur des titres
-            } } }
+            theme: { 
+                extend: { 
+                    colors: {
+                        primary: '#9D61FF', 
+                        secondary: '#F7F7F7' 
+                    },
+                    fontFamily: {
+                        sans: ['Rajdhani', 'sans-serif'],  
+                        title: ['Orbitron', 'sans-serif']  
+                    }
+                } 
+            }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>body { font-family: 'Orbitron', sans-serif; }</style>
+
+    <style>
+        body { font-family: 'Rajdhani', sans-serif; }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased">
-
-    <!-- ===== 2. MENU DE NAVIGATION ===== -->
     <nav class="fixed w-full z-50 bg-black backdrop-blur-md border-b border-gray-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <!-- Nom du site : modifie le texte ici -->
-                <a href="#accueil" class="text-2xl font-bold text-secondary">Portfolio<span class="text-primary"> Lilian Barré</span></a>
-
-                <!-- Liens (ordinateur). Pour ajouter une page : copie une ligne et change href et le texte -->
-                <div class="hidden md:flex space-x-8 items-center">
+                <a href="#accueil" class="text-2xl font-bold text-secondary font-title">Portfolio<span class="text-primary"> Lilian Barré</span></a>
+                <div class="hidden md:flex space-x-8 items-center text-lg">
                     <a href="#accueil" class="text-slate-100 hover:text-primary font-medium">Accueil</a>
                     <a href="#apropos" class="text-slate-100 hover:text-primary font-medium">À propos</a>
                     <a href="#portfolio" class="text-slate-100 hover:text-primary font-medium">Portfolio</a>
-                    <a href="#contact" class="px-5 py-2 rounded-full bg-primary text-slate-100 font-medium hover:bg-indigo-700">Me contacter</a>
+                    <a href="#contact" class="px-5 py-2 rounded-full bg-primary text-slate-100 font-medium hover:bg-indigo-700 font-title text-sm">Me contacter</a>
                 </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-600" aria-label="Ouvrir le menu">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
 
-                <!-- Bouton menu (téléphone) -->
                 <button id="mobile-menu-btn" class="md:hidden text-gray-600" aria-label="Ouvrir le menu">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
         </div>
-
-        <!-- Menu déroulant (téléphone) -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full">
             <div class="px-4 pt-2 pb-6 space-y-2">
                 <a href="#accueil" class="block px-3 py-3 rounded-md font-medium text-gray-700 hover:bg-gray-50">Accueil</a>
@@ -53,19 +59,15 @@
         </div>
     </nav>
 
-    <!-- ===== 3. ACCUEIL ===== -->
     <section id="accueil" class="pt-32 pb-20 px-4 flex items-center justify-center text-center min-h-screen bg-slate-950">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-sm font-semibold text-primary uppercase tracking-widest mb-3">Lilian Barré</h2>
-            <!-- Grand titre : modifie le texte -->
             <h1 class="text-5xl md:text-7xl font-extrabold text-secondary mb-6 leading-tight">
                 <span class="text-primary">Développeur Gameplay</span>
             </h1>
-            <!-- Texte court de présentation -->
             <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
                Voici mon portfolio ! Découvrez mes projets et mes liens utiles.
             </p>
-            <!-- Boutons : href="#portfolio" = va à la section, ou mets un lien complet https://... -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 bg-primary text-white rounded-full font-semibold hover:bg-indigo-700">Découvrir mon travail</a>
                 <a href="#contact" class="w-full sm:w-auto px-8 py-4 bg-slate-100 text-primary border border-gray-200 rounded-full font-semibold hover:border-primary">Me contacter</a>
@@ -73,16 +75,13 @@
         </div>
     </section>
 
-    <!-- ===== 4. A PROPOS ===== -->
     <section id="apropos" class="py-20 bg-slate-950">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
-            <!-- Photo : remplace l'URL dans src par ta photo (ex: photo.jpg si tu l'ajoutes dans le dépôt) -->
             <div class="w-full md:w-1/2 flex justify-center">
                 <img src="fichiers-utiles/photo-lilian-barre.jpg" alt="Ma photo" class="w-72 h-72 md:w-96 md:h-96 object-cover rounded-full shadow-2xl border-4 border-primary">
             </div>
             <div class="w-full md:w-1/2">
                 <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-6">À propos de moi</h2>
-                <!-- Textes à modifier -->
                 <p class="text-gray-600 mb-6 text-lg">Passionnée et créatif, je cherche à  mettre en œuvre mes compétences techniques et mon esprit d’équipe.</p>
                 <p class="text-gray-600 mb-8 text-lg">Vous retrouverez plus bas mes multiples projets.</p>
                 <div class="grid grid-cols-2 gap-4">
@@ -95,7 +94,6 @@
         </div>
     </section>
 
-    <!-- ===== 5. PORTFOLIO (cartes : liens, vidéos, boutons) ===== -->
     <section id="portfolio" class="py-20 bg-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -103,10 +101,8 @@
                 <p class="text-gray-600 max-w-2xl mx-auto">Une sélection de mes projets.</p>
             </div>
 
-            <!-- Pour ajouter une carte : copie un bloc "CARTE" entier et colle-le à la suite -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <!-- CARTE 1 : projet avec image et lien -->
                  <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl">
                     <img src="https://placehold.co/600x400/4f46e5/ffffff?text=Image+Projet" alt="Projet" class="w-full h-48 object-cover">
                     <div class="p-6">
@@ -178,7 +174,6 @@
                 <!--    </div>-->
                 <!--</div>-->
 
-                <!-- CARTE 3 : gros bouton vers un lien externe (ex : GitHub) -->
                 <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl">
                     <div class="h-48 bg-gray-800 flex items-center justify-center">
                         <i class="fab fa-github text-6xl text-white"></i>
@@ -197,18 +192,15 @@
         </div>
     </section>
 
-    <!-- ===== 6. CONTACT ===== -->
     <section id="contact" class="py-20 bg-slate-900">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-gradient-to-br from-primary to-purple-600 rounded-3xl p-8 md:p-16 text-center text-white shadow-2xl">
                 <h2 class="text-3xl md:text-4xl font-bold mb-6">Restons en contact !</h2>
                 <p class="text-indigo-100 mb-10 text-lg">Écrivez-moi par e-mail ou retrouvez-moi sur les réseaux.</p>
                 <div class="flex flex-wrap justify-center items-center gap-6">
-                    <!-- Remplace l'adresse e-mail -->
                     <a href="mailto:votre.email@exemple.com" class="px-6 py-3 bg-white text-primary rounded-full font-bold hover:bg-gray-100">
                         <i class="fas fa-envelope mr-2"></i> Envoyer un e-mail
                     </a>
-                    <!-- Remplace les # par tes vrais liens -->
                     <div class="flex gap-4">
                         <a href="#" target="_blank" aria-label="LinkedIn" class="w-12 h-12 bg-white/20 flex items-center justify-center rounded-full hover:bg-white/40"><i class="fab fa-linkedin-in text-xl"></i></a>
                         <a href="#" target="_blank" aria-label="Twitter" class="w-12 h-12 bg-white/20 flex items-center justify-center rounded-full hover:bg-white/40"><i class="fab fa-twitter text-xl"></i></a>
@@ -219,12 +211,9 @@
         </div>
     </section>
 
-    <!-- ===== 7. PIED DE PAGE ===== -->
     <footer class="bg-slate-900 py-8 text-center text-gray-400">
         <p>&copy; <span id="year"></span> Portfolio Lilian Barré. Tous droits réservés.</p>
     </footer>
-
-    <!-- ===== 8. SCRIPT (menu téléphone + année) ===== -->
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
         const btn = document.getElementById('mobile-menu-btn');
